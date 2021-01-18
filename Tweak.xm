@@ -14,17 +14,6 @@ UIViewController *batteryPopViewController;
 traitCollection:(UITraitCollection *)traitCollection {
     return UIModalPresentationNone;
 }
-
-// vibrate when presented and dismissed
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    AudioServicesPlaySystemSound(1519);
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    AudioServicesPlaySystemSound(1519);
-}
 @end
 
 @interface _UIStatusBarForegroundView : UIView
