@@ -1,0 +1,9 @@
+Package: com.nahtedetihw.poplockanddropit
+Name: PopLockAndDropIt
+Version: 1.0
+Architecture: iphoneos-arm
+Description: Create popovers!
+Maintainer: Ethan Whited
+Author: Ethan Whited
+Section: Tweaks
+Depends: mobilesubstrate
