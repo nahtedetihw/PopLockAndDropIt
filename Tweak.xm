@@ -3,6 +3,7 @@
 
 UIViewController *batteryPopViewController;
 
+// Assign the popover delegate to our presenting view controller
 @interface PopLockAndDropItViewController : UIViewController <UIPopoverPresentationControllerDelegate>
 @end
 
