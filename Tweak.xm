@@ -91,7 +91,7 @@ traitCollection:(UITraitCollection *)traitCollection {
     batteryPopover.permittedArrowDirections = UIPopoverArrowDirectionUp;
     
     //batteryPopover.barButtonItem = batteryButtonItem;
-    // you can replace the below two methods with barbuttonitem if you are using a UIBarButtonItem
+    // you can replace the below two methods with barbuttonitem if you are using a UIBarButtonItem - to see how this is done, you can view my other open source tweak https://github.com/nahtedetihw/settingsbuttons
     // Here I am telling the popover that self is the view it should pop from and give it the frame of self so that it knows to center itself in the middle
     batteryPopover.sourceView = self;
     batteryPopover.sourceRect = self.frame;
