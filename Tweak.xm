@@ -3,6 +3,7 @@
 
 UIViewController *batteryPopViewController;
 
+// Add the popover delegate to our new view controller
 @interface PopLockAndDropItViewController : UIViewController <UIPopoverPresentationControllerDelegate>
 @end
 
@@ -13,17 +14,6 @@ UIViewController *batteryPopViewController;
 - (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller
 traitCollection:(UITraitCollection *)traitCollection {
     return UIModalPresentationNone;
-}
-
-// vibrate when presented and dismissed
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    AudioServicesPlaySystemSound(1519);
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    AudioServicesPlaySystemSound(1519);
 }
 @end
 
@@ -59,7 +49,7 @@ traitCollection:(UITraitCollection *)traitCollection {
 - (void)batteryTapGesture:(UITapGestureRecognizer *)sender {
     
     // The view controller holding our popover
-    UIViewController *batteryPopViewController = [[UIViewController alloc] init];
+    batteryPopViewController = [[UIViewController alloc] init];
     batteryPopViewController.modalPresentationStyle = UIModalPresentationPopover;
     batteryPopViewController.preferredContentSize = CGSizeMake(200,130);
 
@@ -69,6 +59,7 @@ traitCollection:(UITraitCollection *)traitCollection {
     batteryLabel.textAlignment = NSTextAlignmentCenter;
     batteryLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     batteryLabel.adjustsFontSizeToFitWidth = YES;
+    batteryLabel.userInteractionEnabled = NO;
     batteryLabel.font = [UIFont boldSystemFontOfSize:40];
     batteryLabel.textColor = [UIColor labelColor];
     CGFloat myFloat = [self deviceBatteryPercent];
@@ -81,6 +72,7 @@ traitCollection:(UITraitCollection *)traitCollection {
     batteryInfoLabel.textAlignment = NSTextAlignmentCenter;
     batteryInfoLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     batteryInfoLabel.adjustsFontSizeToFitWidth = YES;
+    batteryInfoLabel.userInteractionEnabled = NO;
     batteryInfoLabel.font = [UIFont boldSystemFontOfSize:20];
     batteryInfoLabel.textColor = [UIColor labelColor];
     batteryInfoLabel.text = @"Your current battery level is:";
@@ -108,6 +100,7 @@ traitCollection:(UITraitCollection *)traitCollection {
     batteryPopover.sourceRect = self.frame;
     
     [[%c(SBIconController) sharedInstance] presentViewController:batteryPopViewController animated:YES completion:nil];
+    AudioServicesPlaySystemSound(1519);
 }
 %end
 
